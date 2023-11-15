@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h3 class="text-center">Lista de Espacios</h3>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <div class="card" *ngFor="let espacio of espacios">
+                <div class="card-body">
+                    <h5 class="card-title">Espacio número: {{espacio.numeroEspacio}}</h5>
+                    <p class="card-text">Estado: {{espacio.estado}}</p>
+                    <a *ngIf="espacio.estado === 'Disponible'" href="#" class="btn btn-primary">Reservar</a>
+                    <a *ngIf="espacio.estado === 'Reservado'" href="/" class="btn btn-danger">Espacio Reservado</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

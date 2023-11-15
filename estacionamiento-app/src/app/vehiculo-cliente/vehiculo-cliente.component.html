@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h3 class="text-center">Vehículos</h3>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="vehiculo.idVehiculo != null">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Marca</th>
+                            <th scope="col">Modelo</th>
+                            <th scope="col">Placa</th>
+                            <th scope="col">Cliente</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">{{vehiculo.idVehiculo}}</th>
+                            <td>{{vehiculo.marca}}</td>
+                            <td>{{vehiculo.modelo}}</td>
+                            <td>{{vehiculo.placa}}</td>
+                            <td>{{vehiculo.cliente.nombre}}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-primary" (click)="editarVehiculo(vehiculo.idVehiculo)">Editar</button>
+                                    <button class="btn btn-danger" (click)="eliminarVehiculo(vehiculo.idVehiculo)">Eliminar</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="vehiculo.idVehiculo === null">
+        <div class="col-12">
+            <h3 class="text-center">Registrar Vehículo</h3>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="vehiculo.idVehiculo == null">
+        <div class="col-md-6 offset-md-3">
+            <form (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="marca" class="form-label">Marca</label>
+                    <input type="text" class="form-control" id="marca" name="marca" [(ngModel)]="vehiculo.marca">
+                </div>
+                <div class="mb-3">
+                    <label for="modelo" class="form-label">Modelo</label>
+                    <input type="text" class="form-control" id="modelo" name="modelo" [(ngModel)]="vehiculo.modelo">
+                </div>
+                <div class="mb-3">
+                    <label for="placa" class="form-label">Placa</label>
+                    <input type="text" class="form-control" id="placa" name="placa" [(ngModel)]="vehiculo.placa">
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary">Guardar Vehículo</button>
+                    <a class="btn btn-danger mt-2" href="/">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
